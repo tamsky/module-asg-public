@@ -1,0 +1,12 @@
+**Note**: This public repo contains the documentation for the private GitHub repo <https://github.com/gruntwork-io/module-asg>.
+We publish the documentation publicly so it turns up in online searches, but to see the source code, you must be a Gruntwork customer.
+If you're already a Gruntwork customer, the original source for this file is at: <https://github.com/gruntwork-io/module-asg/blob/master/LICENSE.txt>.
+If you're not a customer, contact us at <info@gruntwork.io> or <http://www.gruntwork.io> for info on how to get access!
+
+Gruntwork License
+
+Copyright (c) 2016 Gruntwork, LLC
+
+This code is the property of Gruntwork, LLC. In the Software Development Agreement signed by both Gruntwork and your
+company, Gruntwork grants you a limited license to use, modify, and create derivative works of this code. Please
+consult the Software Development Agreement for the complete terms under which you may use this code. 

@@ -31,6 +31,8 @@ The supporting modules are:
   Terraform does not have support for conditional logic, and usually you don't need it, but in the rare cases where you
   do, this module contains a workaround.
 
+Click on each module above to see its documentation. Head over to the [examples](/examples) folder for examples.
+
 ## What is a module?
 
 At [Gruntwork](http://www.gruntwork.io), we've taken the thousands of hours we spent building infrastructure on AWS and
@@ -106,3 +108,7 @@ The version is defined using Git tags.  Use GitHub to create a release, which wi
 #### Tests
 
 See the [test](/test) folder for details.
+
+## License
+
+Please see [LICENSE.txt](/LICENSE.txt) for details on how the code in this repo is licensed.

@@ -10,28 +10,13 @@ This repo contains modules for creating and managing a best-practices [Auto Scal
 
 The main modules are:
 
-* [asg-rolling-deploy-dynamic](/modules/asg-rolling-deploy-dynamic): This module creates an ASG that can do a
-  zero-downtime rolling deployment using [CloudFormation](https://aws.amazon.com/cloudformation/). This allows you to
-  size the ASG both statically (e.g. by manually setting a fixed size) or dynamically (e.g. via Auto Scaling Policies).
-* [asg-rolling-deploy-static](/modules/asg-rolling-deploy-static): This module creates an ASG that can do a
-  zero-downtime rolling deployment using pure Terraform code. This only allows you to set the size of the ASG
-  statically, by manually setting a fixed size.
-
-The supporting modules are:
-
-* [cfn-signal-go](/modules/cfn-signal-go): A Go implementation of Amazon's Python `cfn-signal` script that can be used
-  to signal CloudFormation when an EC2 Instance is up and running so CloudFormation knows if a rolling deployment
-  worked or needs to be rolled back. This Go implementaiton allows us to create cross-platform standalone binaries
-  instead of relying on Python 2.x.
-* [cloudformation-scripts](/modules/cloudformation-scripts): Install the Amazon [CloudFormation Helper
-  Scripts](http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/cfn-helper-scripts-reference.html), on your
-  EC2 Instances, including the Python `cfn-signal` script, which can be used to signal CloudFormation when an EC2
-  Instance is up and running so CloudFormation knows if a rolling deployment worked or needs to be rolled back.
-* [render-if-equal](/modules/render-if-equal): This module contains a hacky way to support if-statements in Terraform.
-  Terraform does not have support for conditional logic, and usually you don't need it, but in the rare cases where you
-  do, this module contains a workaround.
+* [asg-rolling-deploy](/modules/asg-rolling-deploy): This module creates an ASG that can do a zero-downtime rolling 
+  deployment. 
 
 Click on each module above to see its documentation. Head over to the [examples](/examples) folder for examples.
+
+
+
 
 ## What is a module?
 
@@ -41,6 +26,9 @@ best-practices definition of a piece of infrastructure, such as a VPC, ECS clust
 are versioned using [Semantic Versioning](http://semver.org/) to allow Gruntwork clients to keep up to date with the
 latest infrastructure best practices in a systematic way.
 
+
+
+
 ## How do you use a module?
 
 Most of our modules contain either:
@@ -48,7 +36,8 @@ Most of our modules contain either:
 1. [Terraform](https://www.terraform.io/) code
 1. Scripts & binaries
 
-#### Using a Terraform Module
+
+### Using a Terraform Module
 
 To use a module in your Terraform templates, create a `module` resource and set its `source` field to the Git URL of
 this repo. You should also set the `ref` parameter so you're fixed to a specific version of this repo, as the `master`
@@ -72,7 +61,8 @@ See the module's documentation and `vars.tf` file for all the parameters you can
 pull the latest version of this module from this repo before runnin gthe standard  `terraform plan` and
 `terraform apply` commands.
 
-#### Using scripts & binaries
+
+### Using scripts & binaries
 
 You can install the scripts and binaries in the `modules` folder of any repo using the [Gruntwork
 Installer](https://github.com/gruntwork-io/gruntwork-installer). For example, if the scripts you want to install are
@@ -85,15 +75,21 @@ gruntwork-install --module-name "ecs-scripts" --repo "https://github.com/gruntwo
 
 See the docs for each script & binary for detailed instructions on how to use them.
 
+
+
+
 ## What's an Auto Scaling Group?
 
 An [Auto Scaling Group](https://aws.amazon.com/autoscaling/) (ASG) is used to manage a cluster of EC2 Instances. It
 can enforce pre-defined rules about how many instances to run in the cluster, scale the number of instances up or
 down depending on traffic, and automatically restart instances if they go down.
 
+
+
+
 ## Developing a module
 
-#### Versioning
+### Versioning
 
 We are following the principles of [Semantic Versioning](http://semver.org/). During initial development, the major
 version is to 0 (e.g., `0.x.y`), which indicates the code does not yet have a stable API. Once we hit `1.0.0`, we will
@@ -105,9 +101,13 @@ follow these rules:
 
 The version is defined using Git tags.  Use GitHub to create a release, which will have the effect of adding a git tag.
 
-#### Tests
+
+### Tests
 
 See the [test](/test) folder for details.
+
+
+
 
 ## License
 
